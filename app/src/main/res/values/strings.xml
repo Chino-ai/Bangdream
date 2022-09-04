@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">animeLover</string>
+    <string name="kasumi">Kasumi</string>
+    <string name="name">Name :</string>
+    <string name="favourite">favourite</string>
+    <string name="refresh_page">Refresh Page</string>
+    <string name="no_internet">No Internet</string>
+</resources>
