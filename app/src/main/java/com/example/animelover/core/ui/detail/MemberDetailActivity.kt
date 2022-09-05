@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.animelover.R
 import com.example.animelover.core.domain.model.Member
-import com.example.animelover.core.ui.ViewModelFactory
 import com.example.animelover.databinding.ActivityMemberDetailBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MemberDetailActivity : AppCompatActivity() {
 
@@ -17,14 +17,12 @@ class MemberDetailActivity : AppCompatActivity() {
     }
 
     private lateinit var memberDetailBinding: ActivityMemberDetailBinding
-    private lateinit var memberDetailViewModel: MemberDetailViewModel
+    private val memberDetailViewModel: MemberDetailViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         memberDetailBinding = ActivityMemberDetailBinding.inflate(layoutInflater)
         setContentView(memberDetailBinding.root)
 
-        val factory = ViewModelFactory.getInstance(this)
-        memberDetailViewModel = ViewModelProvider(this, factory)[MemberDetailViewModel::class.java]
 
         val detailMember= intent.getParcelableExtra<Member>(EXTRA_DATA)
         showDetailMember(detailMember)

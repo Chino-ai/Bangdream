@@ -8,15 +8,15 @@ import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.animelover.R
-import com.example.animelover.core.ui.ViewModelFactory
 import com.example.animelover.core.ui.detail.MemberDetailActivity
 import com.example.animelover.core.ui.detail.MemberDetailActivity.Companion.EXTRA_DATA
 import com.example.animelover.core.ui.favourite.MemberFavouriteActivity
 import com.example.animelover.databinding.ActivityMainBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
-    private lateinit var memberViewModel: MemberViewModel
+    private val memberViewModel: MemberViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -29,8 +29,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val factory = ViewModelFactory.getInstance(this)
-        memberViewModel = ViewModelProvider(this, factory)[MemberViewModel::class.java]
+
         memberViewModel.member.observe(this){
             listMemberAdapter.setData(it.data)
         }

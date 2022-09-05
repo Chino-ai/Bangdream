@@ -4,7 +4,7 @@ import com.dicoding.tourismapp.core.data.source.local.room.BangdreamDao
 import com.example.animelover.core.data.source.local.entity.MemberEntity
 import kotlinx.coroutines.flow.Flow
 
-class LocalDataSource private constructor(private val bangdreamDao: BangdreamDao) {
+class LocalDataSource(private val bangdreamDao: BangdreamDao) {
 
     companion object {
         private var instance: LocalDataSource? = null
