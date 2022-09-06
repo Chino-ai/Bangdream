@@ -1,6 +1,7 @@
 package com.example.animelover.ui.home
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -10,7 +11,6 @@ import com.example.animelover.R
 import com.example.animelover.core.ListMemberAdapter
 import com.example.animelover.ui.detail.MemberDetailActivity
 import com.example.animelover.ui.detail.MemberDetailActivity.Companion.EXTRA_DATA
-import com.example.animelover.ui.favourite.MemberFavouriteActivity
 import com.example.animelover.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.fav-> {
-                val intent = Intent(this@MainActivity, MemberFavouriteActivity::class.java)
-                startActivity(intent)
+                val uri = Uri.parse("bangdream://favourite")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
             }
             R.id.refresh ->{
                 finish()

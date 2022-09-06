@@ -1,14 +1,17 @@
-package com.example.animelover.ui.favourite
+package com.example.favourite
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.animelover.core.ListMemberAdapter
+import com.example.animelover.databinding.ActivityMemberDetailBinding
 import com.example.animelover.ui.detail.MemberDetailActivity
 import com.example.animelover.ui.detail.MemberDetailActivity.Companion.EXTRA_DATA
-import com.example.animelover.core.ListMemberAdapter
-import com.example.animelover.databinding.ActivityMemberFavouriteBinding
+import com.example.favourite.databinding.ActivityMemberFavouriteBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
+
 
 class MemberFavouriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMemberFavouriteBinding
@@ -17,6 +20,7 @@ class MemberFavouriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMemberFavouriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        loadKoinModules(favouriteModule)
 
         val memberAdapter = ListMemberAdapter()
         memberAdapter.onItemClick = { selectedData ->
@@ -26,9 +30,9 @@ class MemberFavouriteActivity : AppCompatActivity() {
         }
 
 
-        memberFavouriteViewModel.getFavourite.observe(this, { dataMember ->
+        memberFavouriteViewModel.getFavourite.observe(this) { dataMember ->
             memberAdapter.setData(dataMember)
-        })
+        }
 
         with(binding.rv) {
             layoutManager = LinearLayoutManager(context)

@@ -1,4 +1,4 @@
-package com.example.animelover.ui.favourite
+package com.example.favourite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData

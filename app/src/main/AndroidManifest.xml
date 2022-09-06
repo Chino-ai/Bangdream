@@ -17,7 +17,7 @@
         android:theme="@style/Theme.AnimeLover"
         tools:targetApi="31">
         <activity
-            android:name=".ui.favourite.MemberFavouriteActivity"
+            android:name="com.example.favourite.MemberFavouriteActivity"
             android:exported="false" />
         <activity
             android:name=".ui.detail.MemberDetailActivity"
