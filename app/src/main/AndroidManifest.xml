@@ -17,13 +17,13 @@
         android:theme="@style/Theme.AnimeLover"
         tools:targetApi="31">
         <activity
-            android:name=".core.ui.favourite.MemberFavouriteActivity"
+            android:name=".ui.favourite.MemberFavouriteActivity"
             android:exported="false" />
         <activity
-            android:name=".core.ui.detail.MemberDetailActivity"
+            android:name=".ui.detail.MemberDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".core.ui.home.MainActivity"
+            android:name=".ui.home.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
