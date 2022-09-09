@@ -10,7 +10,7 @@
         style="@style/Divider"
         />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/avatar"
         android:layout_marginTop="10dp"
         android:layout_width="50dp"

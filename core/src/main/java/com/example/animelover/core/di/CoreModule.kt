@@ -8,6 +8,9 @@ import com.example.animelover.core.data.MemberRepository
 import com.example.animelover.core.data.source.remote.RemoteDataSource
 import com.example.animelover.core.domain.repository.IMemberItemRepository
 import com.example.animelover.core.utils.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.internal.platform.Platform.Companion.get
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,21 +26,32 @@ val databaseModule = module {
     }
 
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("dicoding".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             BangdreamDatabase::class.java,
             "Bangdream.db"
         ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
             .build()
     }
 }
 
 val networkModule = module {
     single {
+
+        val hostname = "bandori.party"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostname, "sha256/t59Z5i19n7J+wqtVhP8mJvW1jPA+MWWjX4nL8VEhkOg=")
+            .add(hostname, "sha256/FEzVOUp4dF3gI0ZVPRJhFbSJVXR+uQmMH65xhs1glH4=")
+            .add(hostname, "sha256/Y9mvm0exBk1JoQ57f9Vm28jKo5lFm/woKcVxrYxu80o=")
+            .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
 
@@ -61,13 +75,13 @@ val repositoryModule = module{
         LocalDataSource(get())
     }
     single{
-        com.example.animelover.core.data.source.remote.RemoteDataSource(get())
+        RemoteDataSource(get())
     }
 
     factory {
         AppExecutors()
     }
     single<IMemberItemRepository>{
-        com.example.animelover.core.data.MemberRepository(get(), get(), get())
+        MemberRepository(get(), get(), get())
     }
 }

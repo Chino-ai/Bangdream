@@ -16,11 +16,18 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -32,31 +39,24 @@ android {
         jvmTarget = '1.8'
     }
 
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
+
     buildFeatures {
         viewBinding true
     }
+
 }
 
 
 
 dependencies {
-
+    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation "androidx.core:core-ktx:$core_ktx_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
-    implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
-    testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
-    implementation "androidx.multidex:multidex:$multidex_version"
 
-    implementation "de.hdodenhof:circleimageview:$de"
 
-    implementation "androidx.cardview:cardview:$cardview_version"
-    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
-    implementation "com.google.android.material:material:$material_version"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
 
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
@@ -69,8 +69,13 @@ dependencies {
 
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttp3_version"
+    implementation "com.squareup.okhttp3:okhttp:$okHttp3_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
 
-    implementation "io.insert-koin:koin-core:$koin_version"
-    implementation "io.insert-koin:koin-android:$koin_version"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary"
+    implementation "net.zetetic:android-database-sqlcipher:$sqlcipher"
+    implementation "androidx.sqlite:sqlite-ktx:$sqlite_ktx"
+
+
 
 }

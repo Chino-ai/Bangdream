@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
         memberViewModel.member.observe(this){
             listMemberAdapter.setData(it.data)
         }
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.fav-> {
-                val uri = Uri.parse("bangdream://favourite")
+                val uri = Uri.parse("animelover://favourite")
                 startActivity(Intent(Intent.ACTION_VIEW, uri))
             }
             R.id.refresh ->{
