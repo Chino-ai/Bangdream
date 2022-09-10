@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.animelover.core.ListMemberAdapter
 import com.example.animelover.databinding.ActivityMemberDetailBinding
+import com.example.animelover.favourite.databinding.ActivityMemberFavouriteBinding
 import com.example.animelover.ui.detail.MemberDetailActivity
 import com.example.animelover.ui.detail.MemberDetailActivity.Companion.EXTRA_DATA
-import com.example.favourite.databinding.ActivityMemberFavouriteBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 

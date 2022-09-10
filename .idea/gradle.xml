@@ -14,7 +14,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/favourite" />
+            <option value="$PROJECT_DIR$/favourite_member" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -48,7 +48,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    dynamicFeatures = [':favourite']
+    dynamicFeatures = [':favourite_member']
 }
 
 
