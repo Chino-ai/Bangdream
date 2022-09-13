@@ -1,17 +1,17 @@
 package com.example.animelover.ui.home
 
 import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.animelover.BuildConfig
 import com.example.animelover.R
 import com.example.animelover.core.ListMemberAdapter
+import com.example.animelover.databinding.ActivityMainBinding
 import com.example.animelover.ui.detail.MemberDetailActivity
 import com.example.animelover.ui.detail.MemberDetailActivity.Companion.EXTRA_DATA
-import com.example.animelover.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        memberViewModel.member.observe(this){
+        memberViewModel.member.observe(this) {
             listMemberAdapter.setData(it.data)
         }
 
@@ -45,18 +45,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.item_menu,menu)
+        inflater.inflate(R.menu.item_menu, menu)
 
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId){
-            R.id.fav-> {
-                val uri = Uri.parse("animelover://favourite")
-                startActivity(Intent(Intent.ACTION_VIEW, uri))
+        when (item.itemId) {
+            R.id.fav -> {
+                startActivity(
+                    (intent.setClassName(
+                        BuildConfig.APPLICATION_ID,
+                        "com.example.animelover.favourite.FavouriteActivity"
+                    ))
+                )
             }
-            R.id.refresh ->{
+            R.id.refresh -> {
                 finish()
                 startActivity(intent)
             }

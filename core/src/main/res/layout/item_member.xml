@@ -13,6 +13,7 @@
     <ImageView
         android:id="@+id/avatar"
         android:layout_marginTop="10dp"
+        android:contentDescription="@string/gambar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_below="@id/upLine"

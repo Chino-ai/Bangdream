@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">animeLover</string>
     <string name="kasumi">Kasumi</string>
-    <string name="name">Name :</string>
+    <string name="name">Name : </string>
     <string name="favourite">favourite</string>
     <string name="refresh_page">Refresh Page</string>
     <string name="no_internet">No Internet</string>
-    <string name="title_favourite">Favourite</string>
+    <string name="title_favourite">Module Title</string>
+    <string name="food_like">Food Like : </string>
+    <string name="school">School :  </string>
+    <string name="japanese_name">Japanese Name : </string>
+    <string name="gambar">Gambar</string>
 </resources>

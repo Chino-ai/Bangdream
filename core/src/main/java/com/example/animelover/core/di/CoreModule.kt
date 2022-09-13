@@ -1,9 +1,10 @@
 package com.example.animelover.core.di
 
 import androidx.room.Room
-import com.dicoding.tourismapp.core.data.source.local.LocalDataSource
-import com.dicoding.tourismapp.core.data.source.local.room.BangdreamDatabase
-import com.dicoding.tourismapp.core.data.source.remote.network.ApiService
+import com.example.animelover.core.BuildConfig
+import com.example.animelover.core.data.source.local.room.LocalDataSource
+import com.example.animelover.core.data.source.local.room.BangdreamDatabase
+import com.example.animelover.core.data.source.remote.network.ApiService
 import com.example.animelover.core.data.MemberRepository
 import com.example.animelover.core.data.source.remote.RemoteDataSource
 import com.example.animelover.core.domain.repository.IMemberItemRepository
@@ -12,7 +13,6 @@ import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
-import okhttp3.internal.platform.Platform.Companion.get
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -57,15 +57,12 @@ val networkModule = module {
 
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://bandori.party/api/")
+            .baseUrl("https://bandori.party/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()
         retrofit.create(ApiService::class.java)
     }
-
-
-
 
 
 }

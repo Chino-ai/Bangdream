@@ -1,7 +1,7 @@
 package com.example.animelover.di
 
-import com.dicoding.tourismapp.core.domain.usecase.MemberItemInteractor
-import com.dicoding.tourismapp.core.domain.usecase.MemberItemUseCase
+import com.example.animelover.core.domain.usecase.MemberItemInteractor
+import com.example.animelover.core.domain.usecase.MemberItemUseCase
 import com.example.animelover.ui.detail.MemberDetailViewModel
 import com.example.animelover.ui.home.MemberViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

@@ -1,4 +1,4 @@
-package com.dicoding.tourismapp.core.data
+package com.example.animelover.core.data
 
 import com.example.animelover.core.data.source.remote.network.ApiResponse
 import com.example.animelover.core.utils.AppExecutors

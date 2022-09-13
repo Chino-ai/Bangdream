@@ -1,7 +1,6 @@
 package com.example.animelover.core.domain.repository
 
-import com.dicoding.tourismapp.core.data.Resource
-import com.example.animelover.core.data.source.remote.response.MemberItem
+import com.example.animelover.core.data.Resource
 import com.example.animelover.core.domain.model.Member
 import kotlinx.coroutines.flow.Flow
 

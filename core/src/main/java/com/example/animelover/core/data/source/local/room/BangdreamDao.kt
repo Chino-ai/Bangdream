@@ -1,4 +1,4 @@
-package com.dicoding.tourismapp.core.data.source.local.room
+package com.example.animelover.core.data.source.local.room
 
 import androidx.room.*
 import com.example.animelover.core.data.source.local.entity.MemberEntity

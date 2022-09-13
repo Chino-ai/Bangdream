@@ -1,9 +1,8 @@
 package com.example.animelover.core.data.source.remote
 
-import android.annotation.SuppressLint
 import android.util.Log
 import com.example.animelover.core.data.source.remote.network.ApiResponse
-import com.dicoding.tourismapp.core.data.source.remote.network.ApiService
+import com.example.animelover.core.data.source.remote.network.ApiService
 import com.example.animelover.core.data.source.remote.response.MemberItem
 
 import kotlinx.coroutines.Dispatchers
@@ -13,18 +12,6 @@ import kotlinx.coroutines.flow.flowOn
 import java.lang.Exception
 
 class RemoteDataSource(private val apiService: ApiService) {
-    companion object {
-        @Volatile
-        private var instance: com.example.animelover.core.data.source.remote.RemoteDataSource? = null
-
-        fun getInstance(service: ApiService): com.example.animelover.core.data.source.remote.RemoteDataSource =
-            com.example.animelover.core.data.source.remote.RemoteDataSource.Companion.instance ?: synchronized(this) {
-                com.example.animelover.core.data.source.remote.RemoteDataSource.Companion.instance
-                    ?: com.example.animelover.core.data.source.remote.RemoteDataSource(service)
-            }
-    }
-
-    @SuppressLint("CheckResult")
     suspend fun getListMember(): Flow<ApiResponse<List<MemberItem>>> {
        return flow{
            try{

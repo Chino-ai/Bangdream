@@ -12,7 +12,7 @@
         android:layout_height="243dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/kasumi"
-        />
+        android:contentDescription="@string/gambar" />
 
     <View
         android:id="@+id/upLine"
@@ -26,6 +26,7 @@
         android:id="@+id/badges"
         android:layout_width="37dp"
         android:layout_height="37dp"
+        android:contentDescription="@string/gambar"
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_badge"
         android:layout_below="@id/avatarHeader"/>
@@ -56,12 +57,86 @@
         android:textSize="14sp"
         android:textStyle="bold" />
 
+    <ImageView
+        android:id="@+id/food_badges"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/gambar"
+        android:src="@drawable/ic_badge"
+        android:layout_below="@id/badges"/>
+
+    <TextView
+        android:id="@+id/txt_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/japanese_name"
+        android:layout_toEndOf="@id/badges"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_below="@id/name"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/badges"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="7dp"
+        android:layout_toEndOf="@id/txt_food"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/school_badges"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/gambar"
+        android:src="@drawable/ic_baseline_school_24"
+        android:layout_below="@id/food"/>
+
+    <TextView
+        android:id="@+id/txt_school"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/school"
+        android:layout_toEndOf="@id/school_badges"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_below="@id/food"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/school"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/food"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@id/txt_school"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
     <View
         android:id="@+id/bottomLine"
         style="@style/Divider"
-        android:layout_marginTop="70dp"
-        android:layout_below="@id/upLine"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/school"
         />
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

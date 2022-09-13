@@ -1,4 +1,4 @@
-package com.dicoding.tourismapp.core.data.source.remote.network
+package com.example.animelover.core.data.source.remote.network
 
 
 

@@ -1,12 +1,12 @@
-package com.dicoding.tourismapp.core.domain.usecase
+package com.example.animelover.core.domain.usecase
 
 
-import com.example.animelover.core.data.source.remote.response.MemberItem
 import com.example.animelover.core.domain.model.Member
 import com.example.animelover.core.domain.repository.IMemberItemRepository
 
 
-class MemberItemInteractor(private val resultItemRepository: IMemberItemRepository): MemberItemUseCase {
+class MemberItemInteractor(private val resultItemRepository: IMemberItemRepository):
+    MemberItemUseCase {
 
     override fun getAllMember() = resultItemRepository.getAllTourism()
 
