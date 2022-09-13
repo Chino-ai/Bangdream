@@ -1,7 +1,6 @@
 package com.example.animelover.core.di
 
 import androidx.room.Room
-import com.example.animelover.core.BuildConfig
 import com.example.animelover.core.data.source.local.room.LocalDataSource
 import com.example.animelover.core.data.source.local.room.BangdreamDatabase
 import com.example.animelover.core.data.source.remote.network.ApiService
