@@ -16,13 +16,7 @@
         <activity
             android:name=".FavouriteActivity"
             android:label="Favourite"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="animelover"
-                    android:host="favourite"/>
-            </intent-filter>
+            android:exported="false">
         </activity>
     </application>
 </manifest>

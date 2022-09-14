@@ -53,11 +53,12 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.fav -> {
+
                 startActivity(
-                    (intent.setClassName(
-                        BuildConfig.APPLICATION_ID,
-                        "com.example.animelover.favourite.FavouriteActivity"
-                    ))
+                    Intent(
+                        this,
+                        Class.forName("com.example.animelover.favourite.FavouriteActivity")
+                    )
                 )
             }
             R.id.refresh -> {
